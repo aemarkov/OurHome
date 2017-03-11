@@ -24,6 +24,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100%;
+    color: @font-color;
 }
 
 .roof {
@@ -35,6 +36,51 @@ body {
 }
 
 
+////////////////////////////////////// ПОЛЕЗНЫЕ КЛАССЫ И МИКСИНЫ //////////////////////////////////
+
+.align-center
+{
+    text-align: center;
+}
+
+.shadow-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.shadow-2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.shadow-3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.shadow-4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.shadow-5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.shadow-hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.no-a {
+    text-decoration: none;
+    color: @font-color;
+
+    &:hover {
+        text-decoration: none;
+        color: @font-color;
+    }
+
+    &:focus {
+        text-decoration: none;
+        color: @font-color;
+    }
+}
 
 ////////////////////////////////////////// МЕНЮ ///////////////////////////////////////////////////
 
@@ -44,40 +90,94 @@ body {
     padding-top: @roof-height;
     background-color: rgba(255, 106, 0, 0.4);
     z-index: 10;
-    //Пункт меню
-    .menu-item {
+    font-size: 0;
+    //Для создания красивых рамок первому и последнему элементу
+    .separator-left {
+        display: inline-block;
+        height: @menu-height;
+        border-right: 1px solid #ffd9ba;
+        vertical-align: bottom;
+    }
+
+    .separator-right {
+        display: inline-block;
+        height: @menu-height;
+        border-left: 1px solid #daa77e;
+        vertical-align: bottom;
+    }
+    //Блок меню пользователя
+    .user-menu {
+        float: right;
+    }
+    //Выделение активного меню
+    .active-highlight {
+        display: none;
+        position: absolute;
+        height: 6px;
+        background-color: @roof-color;
+        top: @menu-height;
+        left: -1px;
+        right: -1px;
+        border-radius: 0 0 4px 4px;
+    }
+
+
+    .menu-active {
+        border-bottom: 2px solid @roof-color !important;
+        border-left: 1px solid @roof-color !important;
+        border-right: 1px solid @roof-color !important;
+
+        .active-highlight {
+            display: inline-block;
+        }
+    }
+    //Базовый класс (так же для кнопки пользователя)
+    .menu-item-base 
+    {
+        .no-a;
+
+        position: relative;
+        font-size: medium;
         display: inline-block;
         height: @menu-height;
         line-height: @menu-height - 20px;
-        margin: 0;
         padding: 10px;
-        text-decoration: none;
         transition: background-color 0.1s linear;
-        color: #333;
-        font-size: larger;
+        border-left: 1px solid #daa77e;
+        border-right: 1px solid #ffd9ba;
+        border-bottom: 2px solid #daa77e;
 
         &:hover {
-            background-color: rgba(255, 106, 0, 0.5);
-            text-decoration: none;
-            color: #FFF;
+            background-color: #ffd9ba;
+            //color: #FFF;
         }
+    }
+    //Основной элемент меню
+    .menu-item {
+        .menu-item-base;
 
         &:active {
-            background-color: rgba(255, 106, 0, 0.8);
-            text-decoration: none;
+            background-color: @roof-color;
             color: #FFF;
         }
     }
+
+    .user-menu-item
+    {
+        .menu-item-base;
+
+        & a{
+            .no-a;
+        }
+    }
 }
-
-
 
 ////////////////////////////////////////// CONTENT ////////////////////////////////////////////////
 
 //Белая карточка с тенями в стиле Material Design
 .card {
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    .shadow-1;
     margin: 10px;
     padding: 10px;
 }
@@ -105,12 +205,27 @@ body {
     height: 50px;
 }
 
+
+
 footer
 {
     width: 100%;
     height: @footer-height;
     margin-top: -@footer-height;
+}
+
+.grass {
+    margin-top: -50px;
+    background-image: url('/images/grass.png');
+    width: 100%;
+    height: 50px;
+    background-size: 60px 50px;
+}
+
+
+.footer-content {
     background-color: @grass-color;
+    height: 50px;
 }
 
 /////////////////////////////////////// НОВОСТИ ///////////////////////////////////////////////////
