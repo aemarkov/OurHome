@@ -1,4 +1,12 @@
-﻿div
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////
+///                                                                                             ///
+///                          ОБЩИЕ СТИЛИ                                                        ///
+///                                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+@import (reference) 'settings.less';
+
+div, span, img, td
 {
     //border: 1px solid;
 }
@@ -11,7 +19,7 @@ html
 }
 
 body {
-    background-color: #fffff5;
+    background-color: @background-color;
     min-height: 100%;
     padding: 0;
     margin: 0;
@@ -20,117 +28,61 @@ body {
 
 .roof {
     position: absolute;
-    z-index: 10;
     width: 100%;
-    height: 100px;
+    height: @roof-height;
     background-image: url('/images/shingles_bottom.png');
     background-size: auto 100%;
 }
 
 
 
-////////////////////////////////////////// MENU /////////////////////////////////////////////////||
+////////////////////////////////////////// МЕНЮ ///////////////////////////////////////////////////
 
+//Верхнее горизонтальное меню
 .top-menu {
-    padding-top: 100px;
-    background-color: rgba(255, 106, 0, 0.4);
-}
-
-.menu-item {
-    display: inline-block;
-    height: 60px;
-    line-height: 40px;
-    margin: 0;
-    padding: 10px;
-    text-decoration: none;
-    transition: background-color 0.1s linear;
-    color: #333;
-    font-size: larger;
-
-    &:hover {
-        background-color: rgba(255, 106, 0, 0.5);
-        text-decoration: none;
-        color: #FFF;
-    }
-
-    &:active {
-        background-color: rgba(255, 106, 0, 0.8);
-        text-decoration: none;
-        color: #FFF;
-    }
-}
-
-////////////////////////////////////////// BANNER /////////////////////////////////////////////////
-
-.banner {
-    height: 100%;
     position: relative;
-}
+    padding-top: @roof-height;
+    background-color: rgba(255, 106, 0, 0.4);
+    z-index: 10;
+    //Пункт меню
+    .menu-item {
+        display: inline-block;
+        height: @menu-height;
+        line-height: @menu-height - 20px;
+        margin: 0;
+        padding: 10px;
+        text-decoration: none;
+        transition: background-color 0.1s linear;
+        color: #333;
+        font-size: larger;
 
-.banner-text 
-{
-    position: absolute;
-    top: 50%;
-    margin-top: -100px;
-    height: 200px;
-    right: 300px;
+        &:hover {
+            background-color: rgba(255, 106, 0, 0.5);
+            text-decoration: none;
+            color: #FFF;
+        }
 
-    h1 {
-        font-size: 100px;
-        letter-spacing: 10px;
-    }
-
-    h2 {
-        font-size: 43px;
-    }
-}
-
-.window-position {
-    position: absolute;
-    top: 50%;
-    width: 695px;
-    height: 716px;
-    margin-top: -280px;
-    left: 60px;
-}
-
-.window-container(@width, @height, @background) {
-
-    .window {
-        position: relative;
-        display: block;
-        width: @width;
-        height: @height;
-        background-image: url('/images/window-empty.png');
-        background-size: 100% 100%;
-        z-index: 10;
-    }
-
-    .window-content {
-        display: block;
-        position: absolute;
-
-        top: 5px;
-        left: 5px;
-        bottom: 5px;
-        right: 5px;
-
-        padding: 40px;
-        z-index: 0;
-        background-color: @background;
-        padding: 0px;
-        background-size: 100% 100%;
+        &:active {
+            background-color: rgba(255, 106, 0, 0.8);
+            text-decoration: none;
+            color: #FFF;
+        }
     }
 }
 
-.banner-window {
-    .window-container(695px, 716px, #84dedf);
-}
 
 
 ////////////////////////////////////////// CONTENT ////////////////////////////////////////////////
 
+//Белая карточка с тенями в стиле Material Design
+.card {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 10px;
+    padding: 10px;
+}
 
+//Блок контента
 .block
 {
     margin: 60px 30px 60px 30px;
@@ -140,33 +92,43 @@ body {
     }
 }
 
+//////////////////////////////////////// ФУТЕР ////////////////////////////////////////////////////
 
-.feature-card {
-    margin: 30px 120px 30px 120px;
-    position: relative;
-}
-
-.feature-conent {
-    padding: 20px;
-}
-
-.feature-image {
-    //width: 25%;
-    position: relative;
-}
-
-.feature-window
+.page-content 
 {
-    .window-container(300px, 300px, #F00);
+    width: 100%;    
+    min-height: 100%;
+    //margin-top: -(@roof-height + @menu-height);
 }
 
-.feature-image-content img {
+.kostil {
+    height: 50px;
+}
+
+footer
+{
     width: 100%;
-    height: 100%;
+    height: @footer-height;
+    margin-top: -@footer-height;
+    background-color: @grass-color;
 }
 
-.card {
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+/////////////////////////////////////// НОВОСТИ ///////////////////////////////////////////////////
+
+//Карточка новости
+.news-card
+{
+    padding: 0;
+
+    h3 {
+        padding: 10px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .news-brief {
+        padding: 10px;
+    }
 }

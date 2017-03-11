@@ -350,11 +350,23 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="css\home.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="css\home.min.css">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
     <Content Include="css\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
     <Content Include="css\main.min.css">
       <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="css\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
     </Content>
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -390,6 +402,11 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\toastr.scss" />
+    <Content Include="css\home.less" />
+    <Content Include="css\style.less" />
+    <Content Include="css\settings.less" />
+    <Content Include="Views\Home\Contacts.cshtml" />
+    <Content Include="Views\Home\Documents.cshtml" />
     <None Include="Views\Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Views\Scripts\bootstrap.js" />
     <Content Include="Views\Scripts\bootstrap.min.js" />
@@ -449,7 +466,6 @@
     <Compile Include="App_Start\OurHomeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
@@ -489,6 +505,8 @@
     <Content Include="Views\Layout\_UserMenuOrLoginLink.cshtml" />
     <Content Include="Views\Tenants\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Shared\_BaseLayout.cshtml" />
+    <Content Include="Views\Shared\Partial\_Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

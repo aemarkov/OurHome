@@ -1,0 +1,92 @@
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////
+///                                                                                             ///
+///                          СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ                                         ///
+///                                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+@import (reference) 'settings.less';
+
+///////// БАННЕР /////////
+
+//Банер на главнойс странице
+.banner {
+    height: 100%;
+    position: relative;
+    margin-top: -(@roof-height + @menu-height);
+}
+
+//Крупный текст на банере
+.banner-text {
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    height: 200px;
+    right: 300px;
+
+    h1 {
+        font-size: 100px;
+        letter-spacing: 10px;
+    }
+
+    h2 {
+        font-size: 43px;
+    }
+}
+
+.window-position {
+    position: absolute;
+    top: 50%;
+    width: 695px;
+    height: 716px;
+    margin-top: -280px;
+    left: 60px;
+}
+
+//Окно
+.window-container(@width, @height, @background) {
+
+    .window {
+        position: relative;
+        display: block;
+        width: @width;
+        height: @height;
+        background-image: url('/images/window-empty.png');
+        background-size: 100% 100%;
+        z-index: 10;
+    }
+
+    .window-content {
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        bottom: 5px;
+        right: 5px;
+        padding: 40px;
+        z-index: 0;
+        background-color: @background;
+        padding: 0px;
+        background-size: 100% 100%;
+    }
+}
+
+
+
+.banner-window {
+    .window-container(695px, 716px, #84dedf);
+}
+
+.page-content-home
+{
+    //margin-top: -100%;
+}
+
+///// РАЗДЕЛ ОСОБЕННОСТЕЙ ///////
+.feature-conent {
+    padding: 20px;
+}
+
+.feature-image {
+    width: 25%;
+    position: relative;
+}

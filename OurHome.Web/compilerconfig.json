@@ -6,5 +6,13 @@
   {
     "outputFile": "css/bootstrap/bootstrap-material-design.css",
     "inputFile": "css/bootstrap/bootstrap-material-design.less"
+  },
+  {
+    "outputFile": "css/style.css",
+    "inputFile": "css/style.less"
+  },
+  {
+    "outputFile": "css/home.css",
+    "inputFile": "css/home.less"
   }
 ]

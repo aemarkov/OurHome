@@ -10,5 +10,15 @@ namespace OurHome.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Contacts()
+        {
+            return View();
+        }
+
+        public ActionResult Documents()
+        {
+            return View();
+        }
 	}
 }
