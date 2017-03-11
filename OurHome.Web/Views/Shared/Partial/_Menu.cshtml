@@ -2,8 +2,8 @@
     <div class="roof">
     </div>
 
-    <nav class="top-menu">
-        <div class="container">
+    <div class="top-menu">
+        <nav class="container  top-menu-visible">
             <span class="separator-left"></span>
             <a href="@Url.Action("Index", "Home")" class="menu-item">
                 <span class="active-highlight"></span>
@@ -31,11 +31,36 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Профиль</a></li>
+                        <li><a href="@Url.Action("Index","Profile")">Профиль</a></li>
                         <li><a href="#">Выход</a></li>
                     </ul>
                 </div>
                 <span class="separator-right"></span>
             </div>
+        </nav>
+        
+        <div class="side-menu-button side-menu-visible">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
         </div>
-    </nav>
+
+    </div>
+
+<div class="menu-darker"></div>
+<div class="side-menu">
+    <h3>Меню</h3>
+     <hr/>
+    
+    <a class="menu-item" href="#">Сводка</a>
+    <a class="menu-item" href="#">Редактирование профиля</a>
+
+    <hr/>
+
+    <a href="@Url.Action("Index", "Home")" class="menu-item">Главная</a>
+    <a href="@Url.Action("Index","Info")" class="menu-item">Полезная информация</a>
+    <a href="@Url.Action("Contacts", "Home")" class="menu-item  menu-active">Контакты</a>
+    <a href="@Url.Action("Documents", "Home")" class="menu-item">Документы</a>
+    <hr/>
+
+    <a class="menu-item" href="#">Выход</a>
+    
+</div>

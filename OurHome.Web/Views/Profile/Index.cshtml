@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Profile/_ProfileLayout.cshtml";
+}
+
+
+<div class="container">
+    <h1>Сводка</h1>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <h3>Профиль</h3>
+                <hr/>
+                <ul>
+                    <li><a href="@Url.Action("Index")">Сводка</a></li>
+                    <li><a href="@Url.Action("Index")">Редактировать профиль</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            
+            <div class="card">
+                <h4>Здравствуйте, Вася Иванов</h4>
+                Идентификационный номер: 6523235
+            </div>
+
+            <h3>Подключенные счетчики</h3>
+
+            <div class="card">
+                <h4>Горячая вода</h4>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,226 @@
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////
+///                                                                                             ///
+///                          МЕНЮ                                                               ///
+///                                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+@import (reference) 'settings.less';
+
+@media (min-width: 992px)
+{
+    .top-menu-visible
+    {
+        display: block;
+    }
+
+    .side-menu-visible
+    {
+        display: none;
+    }
+}
+
+@media(max-width: 991px)
+{
+    .top-menu-visible
+    {
+        display: none;
+    }
+
+    .side-menu-visible {
+        display: block;
+    }
+}
+
+
+//Верхнее горизонтальное меню
+.top-menu {
+    .shadow-1;
+    position: relative;
+    padding-top: @roof-height;
+    background-color: @menu-color;
+    z-index: 10;
+    font-size: 0;
+
+    //Для создания красивых рамок первому и последнему элементу
+    .separator-left {
+        display: inline-block;
+        height: @menu-height;
+        border-right: 1px solid @menu-hover-color;
+        vertical-align: bottom;
+    }
+
+    .separator-right {
+        display: inline-block;
+        height: @menu-height;
+        border-left: 1px solid @menu-border-color;
+        vertical-align: bottom;
+    }
+
+    //Блок меню пользователя
+    .user-menu {
+        float: right;
+    }
+}
+
+//Выделение активного меню
+.top-menu .active-highlight {
+    display: none;
+    position: absolute;
+    height: 6px;
+    background-color: @roof-color;
+    top: @menu-height;
+    left: -1px;
+    right: -1px;
+    border-radius: 0 0 4px 4px;
+}
+
+
+.top-menu .menu-active {
+    border-bottom: 2px solid @roof-color !important;
+    border-left: 1px solid @roof-color !important;
+    border-right: 1px solid @roof-color !important;
+
+    .active-highlight {
+        display: inline-block;
+    }
+}
+
+//Базовый класс (так же для кнопки пользователя)
+.menu-item-base {
+    .no-a;
+    position: relative;
+    font-size: medium;
+    display: inline-block;
+    height: @menu-height;
+    line-height: @menu-height - 20px;
+    padding: 10px;
+    transition: background-color 0.1s linear;
+    border-left: 1px solid @menu-border-color;
+    border-right: 1px solid @menu-hover-color;
+    border-bottom: 2px solid @menu-border-color;
+
+    &:hover {
+        background-color: @menu-hover-color;
+        //color: #FFF;
+    }
+}
+
+//Основной элемент меню
+.top-menu .menu-item {
+    .menu-item-base;
+
+    &:active {
+        background-color: @roof-color;
+        color: #FFF;
+    }
+}
+
+.top-menu .user-menu-item {
+    .menu-item-base;
+
+    & a {
+        .no-a;
+    }
+}
+
+
+/////////////////////// БОКОВОЕ МЕНЮ //////////////////////////////////////////////////////////////
+
+//Кнопка открытия меню
+.side-menu-button
+{
+    @size: @small-menu-height;
+
+    width: @size;
+    height: @size;
+    color: @roof-color;
+    font-size: @size;
+    padding: 10px;
+    box-sizing: content-box;
+    transition: background-color 0.1s linear;
+    transition: color 0.1s linear;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @menu-hover-color;
+    }
+
+    &:active {
+        background-color: @roof-color;
+        color: #FFF;
+    }
+}
+
+//Затемнение фона
+.menu-darker {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); //rgba(154, 64, 0, 0.7);
+}
+
+//Меню
+.side-menu {
+    .shadow-hover;
+    position: absolute;
+    width: 300px;
+    background-color: @menu-color;
+    top: (@roof-height + @small-menu-height);
+    bottom: 0px;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: -350px;
+    overflow: auto;
+
+    transition: margin-left 0.1s ease-in-out;
+
+    hr {
+        //display: none;
+        border-bottom: 1px solid @menu-hover-color;
+        border-top: 1px solid @menu-border-color;
+    }
+
+    .separator-top {
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid @menu-border-color;
+    }
+
+    .separator-bottom {
+        display: block;
+        width: 100%;
+        border-top: 1px solid @menu-hover-color;
+    }
+}
+
+//Элемент меню
+.side-menu .menu-item {
+    .no-a;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    //border-top: 1px solid @menu-hover-color;
+    //border-bottom: 1px solid @menu-border-color;
+    //border-right: 1px solid @menu-border-color - #333;
+    transition: background-color 0.1s linear;
+    font-size: larger;
+
+    &:hover {
+        background-color: @menu-hover-color;
+    }
+
+    &:focus {
+        background-color: @roof-color;
+        color: #fff;
+    }
+}
+
+@media(max-width: 349px)
+{
+    .side-menu {
+        width: 100%;
+    }
+}

@@ -13,12 +13,13 @@ namespace OurHome.Web
             //~/Bundles/vendor/css
             bundles.Add(
                 new StyleBundle("~/Bundles/vendor/css")
-                    .Include("~/Content/themes/base/all.css", new CssRewriteUrlTransform())
-                    .Include("~/Content/bootstrap-cosmo.min.css", new CssRewriteUrlTransform())
-                    .Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
-                    .Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
-                    .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
-                    .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/bootstrap.css", new CssRewriteUrlTransform())
+                    //.Include("~/Content/themes/base/all.css", new CssRewriteUrlTransform())
+                    //.Include("~/Content/bootstrap-cosmo.min.css", new CssRewriteUrlTransform())
+                    //.Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
+                    //.Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
+                    //.Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
+                    //.Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                 );
 
             //~/Bundles/vendor/js/top (These scripts should be included in the head of the page)
@@ -72,6 +73,7 @@ namespace OurHome.Web
             bundles.Add(
                 new ScriptBundle("~/Bundles/js")
                     .Include("~/js/main.js")
+                    .Include("~/js/menu.js")
                 );
         }
     }
