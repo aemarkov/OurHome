@@ -306,10 +306,13 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Content\bootstrap-cosmo.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flags\famfamfam-flags.css" />
+    <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -356,9 +359,6 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\abp-logo.png" />
-    <Content Include="Content\bootstrap-cosmo.min.css" />
-    <Content Include="Content\flags\famfamfam-flags.css" />
-    <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="js\main.js" />
@@ -367,8 +367,6 @@
       <DependentUpon>main.css</DependentUpon>
     </Content>
     <Content Include="log4net.config" />
-    <Content Include="Content\toastr.scss" />
-    <Content Include="Content\toastr.less" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -378,14 +376,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Abp\Framework\styles\abp.mixings.less" />
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Content\toastr.scss" />
     <None Include="Views\Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Views\Scripts\bootstrap.js" />
     <Content Include="Views\Scripts\bootstrap.min.js" />
