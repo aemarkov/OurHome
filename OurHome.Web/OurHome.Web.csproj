@@ -448,6 +448,8 @@
     <Content Include="Views\Home\Partial\_FeatureCardPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
+    <Content Include="Views\Info\Index.cshtml" />
+    <Content Include="Views\Info\Post.cshtml" />
     <None Include="Views\Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Views\Scripts\bootstrap.js" />
     <Content Include="Views\Scripts\bootstrap.min.js" />
@@ -509,6 +511,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
