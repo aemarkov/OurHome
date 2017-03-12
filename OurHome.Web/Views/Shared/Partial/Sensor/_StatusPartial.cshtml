@@ -1,0 +1,10 @@
+﻿@using OurHome.Web.Models.Sensors
+@model OurHome.Web.Models.Sensors.StatusLevel
+    
+@{
+    var style = StatusStyles.FromLevel(Model);
+}
+
+<div class="sensor-status @style.ColorStyle">
+    <i class="glyphicon @style.IconStyle"></i>
+</div>

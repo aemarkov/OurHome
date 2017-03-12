@@ -456,6 +456,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\_ProfileLayout.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
     <None Include="Views\Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Views\Scripts\bootstrap.js" />
     <Content Include="Views\Scripts\bootstrap.min.js" />
@@ -535,6 +536,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Layout\TopMenuViewModel.cs" />
+    <Compile Include="Models\Profile\SummaryViewModel.cs" />
+    <Compile Include="Models\Sensors\BriefSensorViewModel.cs" />
+    <Compile Include="Models\Sensors\SensorMessage.cs" />
+    <Compile Include="Models\Sensors\SensorStatus.cs" />
+    <Compile Include="Models\Sensors\StatusLevel.cs" />
+    <Compile Include="Models\Sensors\SensorType.cs" />
+    <Compile Include="Models\Sensors\StatusStyles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\OurHomeWebViewPageBase.cs" />
     <Compile Include="Views\UrlChecker.cs" />
@@ -559,8 +567,10 @@
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\Shared\Partial\_Menu.cshtml" />
     <Content Include="Views\Shared\Partial\_NewsCardPartial.cshtml" />
-    <Content Include="Views\Shared\Partial\_BatteryPartial.cshtml" />
-    <Content Include="Views\Shared\Partial\_StatusPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\Sensor\_BatteryPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\Sensor\_StatusPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\Sensor\BriefSensorPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\Sensor\_SensorMessagesPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

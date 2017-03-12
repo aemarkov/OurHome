@@ -1,0 +1,16 @@
+﻿@using OurHome.Web.Models.Sensors
+@model IEnumerable<OurHome.Web.Models.Sensors.SensorMessage>
+
+@if (Model != null)
+{
+    <div>
+        @foreach (var message in Model)
+        {
+            var style = StatusStyles.FromLevel(message.Status);
+
+            <div class="@style.ColorStyle">
+                <i class="glyphicon @style.IconStyle"></i> @message.Message
+            </div>
+        }
+    </div>
+}
