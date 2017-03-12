@@ -1,0 +1,39 @@
+﻿@model int
+
+@{
+    string status_class;
+    string battery_class;
+
+
+    if (Model >= 70)
+    {
+        status_class = "good";
+        battery_class = "fa-battery-4";
+    }
+    else if (Model >= 50)
+    {
+        status_class = "warning";
+        battery_class = "fa-battery-3";
+    }
+    else if (Model >= 30)
+    {
+
+        status_class = "warning";
+        battery_class = "fa-battery-2";
+    }
+    else if (Model > 0)
+    {
+        status_class = "error";
+        battery_class = "fa-battery-1";
+    }
+    else
+    {
+        status_class = "error";
+        battery_class = "fa-battery-0";
+    }
+
+}
+
+<div class="sensor-status @status_class">
+    <i class="fa @battery_class fa-2x"></i> @Model<span>%</span>
+</div>

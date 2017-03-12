@@ -1,36 +1,142 @@
 ﻿@{
     Layout = "~/Views/Profile/_ProfileLayout.cshtml";
+    ViewBag.ProfileTitle = "Сводка";
 }
 
 
-<div class="container">
-    <h1>Сводка</h1>
-    
+<div class="card">
+    <h4>Здравствуйте, Вася Иванов</h4>
+    Идентификационный номер: 6523235
+</div>
+
+<h3>Подключенные счетчики</h3>
+
+<div class="card sensor-card">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card">
-                <h3>Профиль</h3>
-                <hr/>
-                <ul>
-                    <li><a href="@Url.Action("Index")">Сводка</a></li>
-                    <li><a href="@Url.Action("Index")">Редактировать профиль</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-9">
-            
-            <div class="card">
-                <h4>Здравствуйте, Вася Иванов</h4>
-                Идентификационный номер: 6523235
-            </div>
-
-            <h3>Подключенные счетчики</h3>
-
-            <div class="card">
-                <h4>Горячая вода</h4>
-            </div>
-
+        <h4 class="col-xs-9">Горячая вода</h4>
+        <div class="col-xs-3">
+            @Html.Partial("Partial/_StatusPartial", "good")
+            @Html.Partial("Partial/_BatteryPartial", 90)
         </div>
     </div>
+    <div class="sensor-update">
+        Последнее обновление: @DateTime.Now.ToString("MM.dd.yyyy hh:mm")
+    </div>
+    <hr/>
+    <div class="info-row row">
+        <div class="col-xs-6">Потребление за месяц:</div>
+        <div class="col-xs-6">300л</div>
+    </div>
+    <div class="info-row row">
+        <div class="col-xs-6">Стоимость за месяц:</div>
+        <div class="col-xs-6">200р</div>
+    </div>
+    <div class="info-row row warning">
+        <div class="col-xs-6">Задолженность</div>
+        <div class="col-xs-6">400р</div>
+    </div>
+    
+    <a href="@Url.Action("Details")" class="btn btn-primary">Подробнее</a>
 
+</div>
+
+<div class="card sensor-card">
+    <div class="row">
+        <h4 class="col-xs-9">Холодная вода</h4>
+        <div class="col-xs-3">
+            @Html.Partial("Partial/_StatusPartial", "good")
+            @Html.Partial("Partial/_BatteryPartial", 60)
+        </div>
+    </div>
+    <div class="sensor-update">
+        Последнее обновление: @DateTime.Now.ToString("MM.dd.yyyy hh:mm")
+    </div>
+    <hr />
+    <div class="info-row row">
+        <div class="col-xs-6">Потребление за месяц:</div>
+        <div class="col-xs-6">500л</div>
+    </div>
+    <div class="info-row row">
+        <div class="col-xs-6">Стоимость за месяц:</div>
+        <div class="col-xs-6">210р</div>
+    </div>
+    <div class="info-row good">
+        Нет задолжности
+    </div>
+    
+    <a href="@Url.Action("Details")" class="btn btn-primary">Подробнее</a>
+
+</div>
+
+<div class="card sensor-card">
+    <div class="row">
+        <h4 class="col-xs-9">Газ</h4>
+        <div class="col-xs-3">
+            @Html.Partial("Partial/_StatusPartial", "good")
+            @Html.Partial("Partial/_BatteryPartial", 30)
+        </div>
+    </div>
+    <div class="sensor-update">
+        Последнее обновление: @DateTime.Now.ToString("MM.dd.yyyy hh:mm")
+    </div>
+    <hr />
+    <div class="info-row row">
+        <div class="col-xs-6">Потребление за месяц:</div>
+        <div class="col-xs-6">300л</div>
+    </div>
+    <div class="info-row row">
+        <div class="col-xs-6">Стоимость за месяц:</div>
+        <div class="col-xs-6">200р</div>
+    </div>
+    <div class="info-row good">
+        Нет задолжности
+    </div>
+    
+    <a href="@Url.Action("Details")" class="btn btn-primary">Подробнее</a>
+
+</div>
+
+<div class="card sensor-card">
+    <div class="row">
+        <h4 class="col-xs-9">Электричество</h4>
+        <div class="col-xs-3">
+            @Html.Partial("Partial/_StatusPartial","error")
+            @Html.Partial("Partial/_BatteryPartial", 15)
+        </div>
+    </div>
+    <div class="sensor-update">
+        Последнее обновление: @DateTime.Now.ToString("MM.dd.yyyy hh:mm")
+    </div>
+    <div class="error">
+        <i class="glyphicon glyphicon-remove-circle"></i> Внимание! Замените батарею
+    </div>
+    <hr />
+    <div class="info-row row">
+        <div class="col-xs-6">Потребление за месяц:</div>
+        <div class="col-xs-6">300л</div>
+    </div>
+    <div class="info-row row">
+        <div class="col-xs-6">Стоимость за месяц:</div>
+        <div class="col-xs-6">200р</div>
+    </div>
+    <div class="info-row good">
+        Нет задолжности
+    </div>
+    
+    <a href="@Url.Action("Details")" class="btn btn-primary">Подробнее</a>
+
+</div>
+
+<h3>Оплата</h3>
+<div class="card">
+    <div class="info-row row warning">
+        <div class="col-xs-6">Общая задолженность:</div>
+        <div class="col-xs-6">400р</div>
+    </div>
+    <div class="info-row row">
+        <div class="col-xs-6">К оплате за месяц:</div>
+        <div class="col-xs-6">200р</div>
+    </div>
+    
+    <a href="@Url.Action("Details")" class="btn btn-success">Оплатить</a>
 </div>

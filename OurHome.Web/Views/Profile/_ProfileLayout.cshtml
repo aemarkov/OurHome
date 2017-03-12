@@ -7,8 +7,28 @@
 }
 
 
-@RenderBody()
 
+
+<div class="container">
+    <h1>@ViewBag.ProfileTitle</h1>
+
+    <div class="row">
+        <div class="col-md-3 profile-menu">
+            <div class="card">
+                <h3>Профиль</h3>
+                <hr />
+                <a class="profile-menu-item" href="@Url.Action("Index")">Сводка</a>
+                <a class="profile-menu-item" href="@Url.Action("Edit")">Редактировать профиль</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+</div>
 
 
 @section Scripts{

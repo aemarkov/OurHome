@@ -6,39 +6,14 @@
 
 @import (reference) 'settings.less';
 
-@media (min-width: 992px)
-{
-    .top-menu-visible
-    {
-        display: block;
-    }
 
-    .side-menu-visible
-    {
-        display: none;
-    }
-}
-
-@media(max-width: 991px)
-{
-    .top-menu-visible
-    {
-        display: none;
-    }
-
-    .side-menu-visible {
-        display: block;
-    }
-}
-
-
-//Верхнее горизонтальное меню
+/////////////////////////////////// Верхнее горизонтальное меню /////////////////////////////////
 .top-menu {
     .shadow-1;
     position: relative;
     padding-top: @roof-height;
     background-color: @menu-color;
-    z-index: 10;
+    z-index: 45;
     font-size: 0;
 
     //Для создания красивых рамок первому и последнему элементу
@@ -160,12 +135,14 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7); //rgba(154, 64, 0, 0.7);
+    z-index: 40;
 }
 
 //Меню
 .side-menu {
     .shadow-hover;
     position: absolute;
+    z-index: 43;
     width: 300px;
     background-color: @menu-color;
     top: (@roof-height + @small-menu-height);
@@ -218,9 +195,41 @@
     }
 }
 
+///////////////////////////// АДАПТИВНОСТЬ ////////////////////////////////////////////////////////
+
 @media(max-width: 349px)
 {
     .side-menu {
         width: 100%;
     }
+}
+
+
+
+@media (min-width: @mobile-width) {
+    /*.top-menu-visible {
+        display: block;
+    }*/
+
+    .side-menu-visible {
+        display: none;
+    }
+
+    .side-menu {
+        display: none;
+    }
+
+    .menu-darker{
+        display: none;
+    }
+}
+
+@media(max-width: @mobile-width) {
+    .top-menu-visible {
+        display: none;
+    }
+
+    /*.side-menu-visible {
+        display: block;
+    }*/
 }

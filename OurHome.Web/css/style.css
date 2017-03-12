@@ -19,9 +19,10 @@ body {
   height: 100px;
   background-image: url('/images/shingles_bottom.png');
   background-size: auto 100%;
-  z-index: 20;
+  z-index: 50;
 }
 .card {
+  position: relative;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin: 10px 0 10px 0;
@@ -124,28 +125,12 @@ footer {
   width: 25%;
   position: relative;
 }
-@media (min-width: 992px) {
-  .top-menu-visible {
-    display: block;
-  }
-  .side-menu-visible {
-    display: none;
-  }
-}
-@media (max-width: 991px) {
-  .top-menu-visible {
-    display: none;
-  }
-  .side-menu-visible {
-    display: block;
-  }
-}
 .top-menu {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   position: relative;
   padding-top: 100px;
   background-color: #ffc393;
-  z-index: 10;
+  z-index: 45;
   font-size: 0;
 }
 .top-menu .separator-left {
@@ -298,10 +283,12 @@ footer {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 40;
 }
 .side-menu {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: absolute;
+  z-index: 43;
   width: 300px;
   background-color: #ffc393;
   top: 130px;
@@ -353,5 +340,105 @@ footer {
 @media (max-width: 349px) {
   .side-menu {
     width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  /*.top-menu-visible {
+        display: block;
+    }*/
+  .side-menu-visible {
+    display: none;
+  }
+  .side-menu {
+    display: none;
+  }
+  .menu-darker {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  .top-menu-visible {
+    display: none;
+  }
+  /*.side-menu-visible {
+        display: block;
+    }*/
+}
+.profile-menu {
+  padding: 0;
+}
+.profile-menu .card {
+  padding: 10px 0 0 0;
+}
+.profile-menu h3 {
+  text-align: center;
+}
+@media (max-width: 992px) {
+  .profile-menu {
+    display: none;
+  }
+}
+.profile-menu-item {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  transition: background-color 0.1s linear;
+  transition: color 0.1s linear;
+}
+.profile-menu-item:hover {
+  text-decoration: none;
+  color: #333;
+}
+.profile-menu-item:focus {
+  text-decoration: none;
+  color: #333;
+}
+.profile-menu-item:hover {
+  background-color: #ffd9ba;
+}
+.profile-menu-item:focus {
+  background-color: #fb6c27;
+  color: #FFF;
+}
+.info-row {
+  padding: 10px 0 10px 0;
+}
+.sensor-status {
+  height: 25px;
+  text-align: right;
+  line-height: 25px;
+}
+.sensor-update {
+  color: #AAA;
+}
+.good {
+  color: #4CAF50;
+  font-weight: 700;
+}
+.warning {
+  color: #FF9800;
+  font-weight: 700;
+}
+.error {
+  color: #F44336;
+  font-weight: 700;
+}
+@media (max-width: 450px) {
+  .sensor-card .col-xs-3 {
+    display: block;
+    width: 100%;
+  }
+  .sensor-card .col-xs-9 {
+    display: block;
+    width: 100%;
+  }
+  .sensor-card .col-xs-6 {
+    display: block;
+    width: 100%;
+  }
+  .sensor-card .sensor-status {
+    text-align: left;
   }
 }

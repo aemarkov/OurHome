@@ -455,6 +455,7 @@
     <Content Include="Views\Info\Post.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\_ProfileLayout.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
     <None Include="Views\Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Views\Scripts\bootstrap.js" />
     <Content Include="Views\Scripts\bootstrap.min.js" />
@@ -558,6 +559,8 @@
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\Shared\Partial\_Menu.cshtml" />
     <Content Include="Views\Shared\Partial\_NewsCardPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\_BatteryPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\_StatusPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

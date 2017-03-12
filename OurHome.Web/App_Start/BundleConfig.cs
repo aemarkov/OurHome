@@ -19,7 +19,7 @@ namespace OurHome.Web
                     //.Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
                     //.Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
                     //.Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
-                    //.Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                 );
 
             //~/Bundles/vendor/js/top (These scripts should be included in the head of the page)

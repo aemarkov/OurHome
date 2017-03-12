@@ -5,3 +5,108 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 @import (reference) 'settings.less';
+
+.profile-menu {
+    padding: 0;
+
+    .card
+    {
+        padding: 10px 0 0 0;
+    }
+
+    h3{
+        text-align:center;
+    }
+}
+
+@media (max-width: @mobile-width)
+{
+    .profile-menu{
+        display: none;
+    }
+}
+
+.profile-menu-item {
+    .no-a;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.1s linear;
+    transition: color 0.1s linear;
+
+    &:hover {
+        background-color: @menu-hover-color;
+    }
+
+    &:focus {
+        background-color: @roof-color;
+        color: #FFF;
+    }
+}
+
+div,h4{
+    //border: 1px solid;
+}
+
+///////////////////////////////////////////// СЧЕТЧИКИ ////////////////////////////////////////////
+
+.info-row
+{
+    padding: 10px 0 10px 0;
+}
+
+
+.sensor-status
+{
+    height: 25px;
+    text-align: right;
+    line-height: 25px;
+}
+
+.sensor-update{
+    color: #AAA;
+}
+
+.good {
+    color: #4CAF50;
+    font-weight: 700;
+}
+
+.warning {
+    color: #FF9800;
+    font-weight: 700;
+}
+
+.error {
+    color: #F44336;
+    font-weight: 700;
+}
+
+//glyphicon glyphicon-warning-sign
+//glyphicon glyphicon-ok-circle
+//glyphicon glyphicon-remove-circle
+
+
+
+.sensor-card {
+    @media(max-width: 450px) {
+        .col-xs-3 {
+            display: block;
+            width: 100%;
+        }
+
+        .col-xs-9 {
+            display: block;
+            width: 100%;
+        }
+
+        .col-xs-6 {
+            display: block;
+            width: 100%;
+        }
+
+        .sensor-status{
+            text-align: left;
+        }
+    }
+}
