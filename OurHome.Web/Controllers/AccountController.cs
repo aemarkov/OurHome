@@ -70,7 +70,7 @@ namespace OurHome.Web.Controllers
             }
 
             return View(
-                new LoginFormViewModel
+                new LoginViewModel()
                 {
                     ReturnUrl = returnUrl,
                     IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled
@@ -79,32 +79,39 @@ namespace OurHome.Web.Controllers
 
         [HttpPost]
         [DisableAuditing]
-        public async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "", string returnUrlHash = "")
+        public async Task<ActionResult> Login(LoginViewModel loginModel, string returnUrl = "", string returnUrlHash = "")
         {
             CheckModelState();
 
-            var loginResult = await GetLoginResultAsync(
+            /*var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
-                loginModel.TenancyName
-                );
+                Tenant.DefaultTenantName
+                );*/
+
+            var loginResult = await _logInManager.LoginAsync(loginModel.UsernameOrEmailAddress, loginModel.Password, Tenant.DefaultTenantName);
+
+            if (loginResult.Result != AbpLoginResultType.Success)
+            {
+                string error = CreateMessageForFailedLoginAttempt(loginResult.Result);
+                ViewBag.Error = error;
+                return View(loginModel);
+            }
 
             await SignInAsync(loginResult.User, loginResult.Identity, loginModel.RememberMe);
 
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
-                returnUrl = Request.ApplicationPath;
+                return RedirectToAction("Index", "Home");
             }
-
-            if (!string.IsNullOrWhiteSpace(returnUrlHash))
+            else
             {
-                returnUrl = returnUrl + returnUrlHash;
+                return Redirect(returnUrl);
             }
-
-            return Json(new AjaxResponse { TargetUrl = returnUrl });
         }
 
-        private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
+        //TODO: Сделать нормально
+        /*private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
         {
             var loginResult = await _logInManager.LoginAsync(usernameOrEmailAddress, password, tenancyName);
 
@@ -115,7 +122,7 @@ namespace OurHome.Web.Controllers
                 default:
                     throw CreateExceptionForFailedLoginAttempt(loginResult.Result, usernameOrEmailAddress, tenancyName);
             }
-        }
+        }*/
 
         private async Task SignInAsync(User user, ClaimsIdentity identity = null, bool rememberMe = false)
         {
@@ -128,26 +135,24 @@ namespace OurHome.Web.Controllers
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = rememberMe }, identity);
         }
 
-        private Exception CreateExceptionForFailedLoginAttempt(AbpLoginResultType result, string usernameOrEmailAddress, string tenancyName)
+        private string CreateMessageForFailedLoginAttempt(AbpLoginResultType result)
         {
             switch (result)
             {
-                case AbpLoginResultType.Success:
-                    return new ApplicationException("Don't call this method with a success result!");
                 case AbpLoginResultType.InvalidUserNameOrEmailAddress:
                 case AbpLoginResultType.InvalidPassword:
-                    return new UserFriendlyException(L("LoginFailed"), L("InvalidUserNameOrPassword"));
+                    return  "Неверное имя пользователя или пароль";
                 case AbpLoginResultType.InvalidTenancyName:
-                    return new UserFriendlyException(L("LoginFailed"), L("ThereIsNoTenantDefinedWithName{0}", tenancyName));
+                    throw new NotImplementedException();
                 case AbpLoginResultType.TenantIsNotActive:
-                    return new UserFriendlyException(L("LoginFailed"), L("TenantIsNotActive", tenancyName));
+                    throw new NotImplementedException();
                 case AbpLoginResultType.UserIsNotActive:
-                    return new UserFriendlyException(L("LoginFailed"), L("UserIsNotActiveAndCanNotLogin", usernameOrEmailAddress));
+                    throw new NotImplementedException();
                 case AbpLoginResultType.UserEmailIsNotConfirmed:
-                    return new UserFriendlyException(L("LoginFailed"), "Your email address is not confirmed. You can not login"); //TODO: localize message
+                    throw new NotImplementedException();
                 default: //Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
                     Logger.Warn("Unhandled login fail reason: " + result);
-                    return new UserFriendlyException(L("LoginFailed"));
+                    return "Неизвестная ошибка";
             }
         }
 
@@ -159,9 +164,10 @@ namespace OurHome.Web.Controllers
 
         #endregion
 
+        //TODO: Регистрация
         #region Register
 
-        public ActionResult Register()
+        /*public ActionResult Register()
         {
             return RegisterView(new RegisterViewModel());
         }
@@ -301,13 +307,14 @@ namespace OurHome.Web.Controllers
 
                 return View("Register", model);
             }
-        }
+        }*/
 
         #endregion
 
+
         #region External Login
 
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -461,9 +468,10 @@ namespace OurHome.Web.Controllers
             }
 
             return foundName != null && foundSurname != null;
-        }
+        }        */
 
         #endregion
+
 
         #region Common private methods
 

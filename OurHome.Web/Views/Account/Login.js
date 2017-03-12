@@ -1,4 +1,4 @@
-﻿(function () {
+﻿/*(function () {
 
     $(function () {
         $('#LoginButton').click(function (e) {
@@ -31,4 +31,4 @@
         $('#LoginForm input:first-child').focus();
     });
 
-})();
+})();*/

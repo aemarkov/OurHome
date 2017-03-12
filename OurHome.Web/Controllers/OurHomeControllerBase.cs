@@ -1,4 +1,5 @@
-﻿using Abp.IdentityFramework;
+﻿using System.Diagnostics;
+using Abp.IdentityFramework;
 using Abp.UI;
 using Abp.Web.Mvc.Controllers;
 using Microsoft.AspNet.Identity;
@@ -19,6 +20,7 @@ namespace OurHome.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                PrintModelErrors();
                 throw new UserFriendlyException(L("FormIsNotValidMessage"));
             }
         }
@@ -26,6 +28,17 @@ namespace OurHome.Web.Controllers
         protected void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        private void PrintModelErrors()
+        {
+            foreach (var key in ModelState.Keys)
+            {
+                foreach (var error in ModelState[key].Errors)
+                {
+                    Debug.WriteLine($"{key} {error.ErrorMessage}");
+                }
+            }
         }
     }
 }

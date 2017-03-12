@@ -5,7 +5,8 @@ using OurHome.MultiTenancy;
 
 namespace OurHome.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Tenants)]
+    //TODO: Понятия не имею, зачем TenantsController
+    /*[AbpMvcAuthorize(PermissionNames.Pages_Tenants)]
     public class TenantsController : OurHomeControllerBase
     {
         private readonly ITenantAppService _tenantAppService;
@@ -20,5 +21,5 @@ namespace OurHome.Web.Controllers
             var output = _tenantAppService.GetTenants();
             return View(output);
         }
-    }
+    }*/
 }

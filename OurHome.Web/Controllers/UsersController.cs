@@ -6,7 +6,8 @@ using OurHome.Users;
 
 namespace OurHome.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    //TODO: Понятия не имею, зачем UsersController
+    /*[AbpMvcAuthorize(PermissionNames.Pages_Users)]
     public class UsersController : OurHomeControllerBase
     {
         private readonly IUserAppService _userAppService;
@@ -21,5 +22,5 @@ namespace OurHome.Web.Controllers
             var output = await _userAppService.GetUsers();
             return View(output);
         }
-    }
+    }*/
 }

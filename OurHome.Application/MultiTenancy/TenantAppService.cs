@@ -15,7 +15,8 @@ using OurHome.Users;
 
 namespace OurHome.MultiTenancy
 {
-    [AbpAuthorize(PermissionNames.Pages_Tenants)]
+    //TODO: Зачем это нужно?
+    /*[AbpAuthorize(PermissionNames.Pages_Tenants)]
     public class TenantAppService : OurHomeAppServiceBase, ITenantAppService
     {
         private readonly TenantManager _tenantManager;
@@ -87,5 +88,5 @@ namespace OurHome.MultiTenancy
                 await CurrentUnitOfWork.SaveChangesAsync();
             }
         }
-    }
+    }*/
 }

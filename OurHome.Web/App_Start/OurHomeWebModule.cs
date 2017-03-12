@@ -7,6 +7,7 @@ using Abp.Hangfire.Configuration;
 using Abp.Zero.Configuration;
 using Abp.Modules;
 using Abp.Web.Mvc;
+using Abp.Web.Mvc.Configuration;
 using Abp.Web.SignalR;
 using OurHome.Api;
 using Hangfire;
@@ -35,6 +36,9 @@ namespace OurHome.Web
             //{
             //    configuration.GlobalConfiguration.UseSqlServerStorage("Default");
             //});
+
+
+            Configuration.Modules.AbpMvc().IsValidationEnabledForControllers = false;
         }
 
         public override void Initialize()

@@ -7,23 +7,34 @@ namespace OurHome.Authorization
     public class OurHomeAuthorizationProvider : AuthorizationProvider
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
-        {
-            //Common permissions
-            var pages = context.GetPermissionOrNull(PermissionNames.Pages);
-            if (pages == null)
-            {
-                pages = context.CreatePermission(PermissionNames.Pages, L("Pages"));
-            }
-
-            var users = pages.CreateChildPermission(PermissionNames.Pages_Users, L("Users"));
-
-            //Host permissions
-            var tenants = pages.CreateChildPermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+        {            
+            var pages = CreateIfNotExists(context, PermissionNames.Pages, L("Pages"));
+            var admin = CreateIfNotExists(context, PermissionNames.Admininstration, L("Admininstration"));
+            var user = CreateIfNotExists(context, PermissionNames.User, L("User"));
         }
 
         private static ILocalizableString L(string name)
         {
             return new LocalizableString(name, OurHomeConsts.LocalizationSourceName);
+        }
+
+        //Создает пермишен, если он не создан
+        private static Permission CreateIfNotExists(IPermissionDefinitionContext context, string name, ILocalizableString displayName, Permission parent = null)
+        {
+            Permission permission;
+
+            if (parent == null)
+            {
+                if ((permission = context.GetPermissionOrNull(name)) == null)
+                    permission = context.CreatePermission(name, displayName);
+            }
+            else
+            {
+                if ((permission = context.GetPermissionOrNull(name)) == null)
+                    permission = parent.CreateChildPermission(name, displayName);
+            }
+
+            return permission;
         }
     }
 }

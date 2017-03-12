@@ -1,4 +1,5 @@
-﻿
+﻿@using OurHome.Authorization.Roles
+
     <div class="roof">
     </div>
 
@@ -22,21 +23,41 @@
                 Документы
             </a>
             <span class="separator-right"></span>
-
-            <div class="user-menu">
-                <span class="separator-left"></span>
-                <div class="user-menu-item">
-                    <a href="javascript:void()" class="dropdown-toggle" data-toggle="dropdown">
-                        Вася Иванов
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="@Url.Action("Index","Profile")">Профиль</a></li>
-                        <li><a href="#">Выход</a></li>
-                    </ul>
+            
+            
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="user-menu">
+                    <span class="separator-left"></span>
+                    <div class="user-menu-item">
+                        <a href="javascript:void()" class="dropdown-toggle" data-toggle="dropdown">
+                            @User.Identity.Name
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            
+                            @if (User.IsInRole(StaticRoleNames.Tenants.User))
+                            {
+                                <li><a href="@Url.Action("Index", "Profile")">Профиль</a></li>
+                            }
+                            else if (User.IsInRole(StaticRoleNames.Tenants.Admin))
+                            {
+                                <li><a href="@Url.Action("Index", "Admin", new{Area="Admin"})">Администрирование</a></li>
+                            }
+                            <li><a href="@Url.Action("Logout", "Account")">Выход</a></li>
+                        </ul>
+                    </div>
+                    <span class="separator-right"></span>
                 </div>
-                <span class="separator-right"></span>
-            </div>
+            }
+            else
+            {
+                <div class="user-menu">
+                    <span class="separator-left"></span>
+                    <a class="user-menu-item" href="@Url.Action("Login","Account")">Вход</a>
+                    <span class="separator-right"></span>
+                </div>
+            }
         </nav>
         
         <div class="side-menu-button side-menu-visible">
@@ -48,10 +69,18 @@
 <div class="menu-darker"></div>
 <div class="side-menu">
     <h3>Меню</h3>
-    <hr/>
     
-    <a class="menu-item" href="@Url.Action("Index","Profile")">Сводка</a>
-    <a class="menu-item" href="@Url.Action("Edit","Profile")">Редактирование профиля</a>
+    @if (User.IsInRole(StaticRoleNames.Tenants.User))
+    {
+        <hr />
+        <a class="menu-item" href="@Url.Action("Index", "Profile")">Сводка</a>
+        <a class="menu-item" href="@Url.Action("Edit", "Profile")">Редактирование профиля</a>
+    }
+    else if (User.IsInRole(StaticRoleNames.Tenants.Admin))
+    {
+        <hr />
+        <a class="menu-item"  href="@Url.Action("Index", "Admin", new{Area="Admin"})">Администрирование</a>
+    }
 
     <hr/>
 
@@ -60,7 +89,14 @@
     <a href="@Url.Action("Contacts", "Home")" class="menu-item  menu-active">Контакты</a>
     <a href="@Url.Action("Documents", "Home")" class="menu-item">Документы</a>
     <hr/>
-
-    <a class="menu-item" href="#">Выход</a>
     
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="menu-item" href="@Url.Action("Logout", "Account")">Выход</a>
+    }
+    else
+    {
+        <a class="menu-item" href="@Url.Action("Login", "Account")">Вход</a>
+    }
+
 </div>

@@ -4,6 +4,11 @@ namespace OurHome.Web.Models.Account
 {
     public class LoginViewModel
     {
+
+        public string ReturnUrl { get; set; }
+        public string ReturnUrlHash { get; set; }
+        public bool IsMultiTenancyEnabled { get; set; }
+
         public string TenancyName { get; set; }
 
         [Required]

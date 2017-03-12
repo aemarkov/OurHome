@@ -5,10 +5,11 @@ using OurHome.MultiTenancy.Dto;
 
 namespace OurHome.MultiTenancy
 {
-    public interface ITenantAppService : IApplicationService
+    //TODO: Зачем это нужно?
+    /*public interface ITenantAppService : IApplicationService
     {
         ListResultDto<TenantListDto> GetTenants();
 
         Task CreateTenant(CreateTenantInput input);
-    }
+    }*/
 }

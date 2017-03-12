@@ -1,6 +1,6 @@
 ﻿@using Abp.Web.Mvc.Extensions
 @using Microsoft.Owin.Security
-@model OurHome.Web.Models.Account.LoginFormViewModel
+@model OurHome.Web.Models.Account.LoginViewModel
 @section Styles
 {
     @Html.IncludeStyle("~/Views/Account/Login.css")
@@ -12,82 +12,49 @@
 <div class="container">
     <div id="LoginArea" class="row">
         <div class="col-lg-12">
-            <div class="well bs-component">
-                <form id="LoginForm" class="form-horizontal" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="POST">
+            <div class="card">
+                <form id="LoginForm" class="form-horizontal" action="@(Url.Action("Login", "Account"))" method="POST">
                     <fieldset>
-                        <legend>@L("LogIn")</legend>
+                        <legend>Вход</legend>
+                        
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+                        }
 
-                        @if (Model.IsMultiTenancyEnabled)
-                        {
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <input type="text" class="form-control" id="TenancyName" placeholder="@L("TenancyName")" required maxlength="@OurHome.MultiTenancy.Tenant.MaxTenancyNameLength">
-                                    <span class="text-muted">@L("CanBeEmptyToLoginAsHost")</span>
-                                </div>
-                            </div>
-                        }
-                        else
-                        {
-                            <input type="hidden" id="TenancyName" value="">
-                        }
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+
+                        
+                        @Html.HiddenFor(x=>x.TenancyName)
+                        @Html.HiddenFor(x=>x.ReturnUrl)
+                        @Html.HiddenFor(x=>x.ReturnUrlHash)
+                        @Html.HiddenFor(x=>x.ReturnUrl)
 
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="EmailAddressInput" placeholder="@L("UserNameOrEmail")" required maxlength="@OurHome.Users.User.MaxEmailAddressLength">
+                                @Html.TextBoxFor(x=>x.UsernameOrEmailAddress, new {@class="form-control", plceholder="E-Mail", required="required", maxlength= OurHome.Users.User.MaxEmailAddressLength })
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <input type="password" class="form-control" id="PasswordInput" placeholder="@L("Password")" required maxlength="@OurHome.Users.User.MaxPlainPasswordLength">
+                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type ="password", plceholder = "Пароль", required = "required", maxlength = OurHome.Users.User.MaxPlainPasswordLength })
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="RememberMeInput">
+                                        @Html.CheckBoxFor(x=>x.RememberMe)
                                         <span class="ripple"></span>
-                                        <span class="check"></span> @L("RememberMe")
+                                        <span class="check"></span> Запомнить меня
                                     </label>
                                 </div>
                             </div>
                         </div>
-
-                        <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
-
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <button id="LoginButton" type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> @L("LogIn")</button>
-                                <a class="btn btn-success" href="@Url.Action("Register")"><i class="fa fa-sign-in"></i> @L("Register")</a>
+                                <button id="LoginButton" type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Вход</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
-
-                @{
-                    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().ToList();
-                }
-
-                @if (loginProviders.Count > 0)
-                {
-                    <p>@L("OrLoginWith"):</p>
-                    
-
-                    using (Html.BeginForm("ExternalLogin", "Account", method: FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
-                        <input type="hidden" name="provider" value="" />
-
-                        foreach (var provider in loginProviders)
-                        {
-                            <a class="btn btn-default btn-sm social-login-link" title="@provider.AuthenticationType"
-                               data-provider="@provider.AuthenticationType"
-                               href="javascript:;">
-                                <i class="fa fa-@(provider.AuthenticationType.ToLower())"></i> @provider.AuthenticationType
-                            </a>
-                        }
-                    }
-                }
-
             </div>
         </div>
     </div>
