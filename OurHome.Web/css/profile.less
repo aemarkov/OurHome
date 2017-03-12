@@ -110,3 +110,41 @@ div,h4{
         }
     }
 }
+
+/////////////////////////////////////////////// ПОДРОБНОСТИ ///////////////////////////////////////
+
+/* Для переключения периодов используем пагинацию бутстрапа.
+   Заголовок - просто первый элемент пагинации. Надо убрать ему лишнюю
+   ерунду
+*/
+
+.period-caption {
+    a {
+        color: @font-color !important;
+        font-weight: 700;
+
+        &:hover {
+            background-color: #FFF !important;
+        }
+    }
+}
+
+@media (max-width: 480px)
+{
+    .period-selector{
+
+        width: 100%;
+
+        li{
+            display: block;
+            width: 100%;
+            
+            a{
+                display: block;
+                width: 100%;
+                border-radius: 0px !important;
+                margin: 0;
+            }
+        }
+    }
+}

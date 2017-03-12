@@ -1,4 +1,44 @@
-﻿@{
+﻿@using Abp.Web.Mvc.Extensions
+@model OurHome.Web.Models.Profile.DetailsViewModel
+@{
     Layout = "~/Views/Profile/_ProfileLayout.cshtml";
     ViewBag.ProfileTitle = "Подробности";
 }
+
+@section Scripts{
+    <script>
+        var unit = '@Model.Type.Unit';
+    </script>
+    @Html.IncludeScript("~/Views/Profile/chart.js")
+}
+
+<div class="card">
+    <h3>@Model.Type.SensorTypeName</h3>
+    <hr/>
+    
+    <nav aria-label="Statistics interval">
+        <ul class="pagination period-selector" id="period-selector">
+            <li class="period-caption"><a>Период</a></li>
+            <li class="active"><a class="chart_period" data-period="1" href="javascript:void(0)">Месяц</a></li>
+            <li><a class="chart_period" data-period="3" href="javascript:void(0)">3 месяца</a></li>
+            <li><a class="chart_period" data-period="6" href="javascript:void(0)">6 месяцев</a></li>
+            <li><a class="chart_period" data-period="12" href="javascript:void(0)">Год</a></li>
+        </ul>
+    </nav>
+
+    
+    <canvas id="chart"></canvas>
+    
+    <hr/>
+    
+    <div class="info-row row">
+        <div class="col-xs-6">Потребление:</div>
+        <div class="col-xs-6"><span id="resources"></span><span>@Model.Type.Unit</span></div>
+    </div>
+
+    <div class="info-row row">
+        <div class="col-xs-6">Стоимость:</div>
+        <div class="col-xs-6"><span id="money"></span><span>&#8381;</span></div>
+    </div>
+
+</div>

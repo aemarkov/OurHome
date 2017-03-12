@@ -57,7 +57,9 @@ namespace OurHome.Web
                         "~/Abp/Framework/scripts/libs/abp.spin.js",
                         "~/Abp/Framework/scripts/libs/abp.sweet-alert.js",
 
-                        "~/Scripts/jquery.signalR-2.2.1.min.js"
+                        "~/Scripts/jquery.signalR-2.2.1.min.js",
+
+                        "~/Scripts/Chart.bundle.min.js"
                     )
                 );
 

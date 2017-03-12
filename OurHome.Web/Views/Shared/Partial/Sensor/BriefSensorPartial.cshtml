@@ -24,10 +24,21 @@
         <div class="col-xs-6">Стоимость за месяц:</div>
         <div class="col-xs-6">@Model.MoneyPerMonth<span>&#8381;</span></div>
     </div>
-    <div class="info-row row warning">
-        <div class="col-xs-6">Задолженность</div>
-        <div class="col-xs-6">@Model.Debt<span>&#8381;</span></div>
-    </div>
+    
+    @if (Model.Debt != 0)
+    {
+        <div class="info-row row warning">
+            <div class="col-xs-6">Задолженность</div>
+            <div class="col-xs-6">@Model.Debt<span>&#8381;</span>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="info-row good">
+          Нет задолженности
+        </div>
+    }
 
     <a href="@Url.Action("Details", "Profile", new{id=Model.Id})" class="btn btn-primary">Подробнее</a>
 

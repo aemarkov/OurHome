@@ -442,3 +442,29 @@ footer {
     text-align: left;
   }
 }
+/* Для переключения периодов используем пагинацию бутстрапа.
+   Заголовок - просто первый элемент пагинации. Надо убрать ему лишнюю
+   ерунду
+*/
+.period-caption a {
+  color: #333 !important;
+  font-weight: 700;
+}
+.period-caption a:hover {
+  background-color: #FFF !important;
+}
+@media (max-width: 480px) {
+  .period-selector {
+    width: 100%;
+  }
+  .period-selector li {
+    display: block;
+    width: 100%;
+  }
+  .period-selector li a {
+    display: block;
+    width: 100%;
+    border-radius: 0px !important;
+    margin: 0;
+  }
+}

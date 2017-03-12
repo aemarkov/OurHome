@@ -453,6 +453,7 @@
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
     <Content Include="Views\Info\Index.cshtml" />
     <Content Include="Views\Info\Post.cshtml" />
+    <Content Include="Views\Profile\chart.js" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\_ProfileLayout.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
@@ -536,6 +537,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Layout\TopMenuViewModel.cs" />
+    <Compile Include="Models\Profile\DetailsViewModel.cs" />
     <Compile Include="Models\Profile\SummaryViewModel.cs" />
     <Compile Include="Models\Sensors\BriefSensorViewModel.cs" />
     <Compile Include="Models\Sensors\SensorMessage.cs" />
