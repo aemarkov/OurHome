@@ -89,7 +89,8 @@ namespace OurHome.Web.Controllers
                 Tenant.DefaultTenantName
                 );*/
 
-            var loginResult = await _logInManager.LoginAsync(loginModel.UsernameOrEmailAddress, loginModel.Password, Tenant.DefaultTenantName);
+            var loginResult = await _logInManager.LoginAsync(loginModel.UsernameOrEmailAddress, loginModel.Password, loginModel.TenancyName);
+
 
             if (loginResult.Result != AbpLoginResultType.Success)
             {
@@ -143,13 +144,13 @@ namespace OurHome.Web.Controllers
                 case AbpLoginResultType.InvalidPassword:
                     return  "Неверное имя пользователя или пароль";
                 case AbpLoginResultType.InvalidTenancyName:
-                    throw new NotImplementedException();
+                    return "Неверное имя тенанта";
                 case AbpLoginResultType.TenantIsNotActive:
-                    throw new NotImplementedException();
+                    return "Тенант не активен";
                 case AbpLoginResultType.UserIsNotActive:
-                    throw new NotImplementedException();
+                    return "Пользователь не активен";
                 case AbpLoginResultType.UserEmailIsNotConfirmed:
-                    throw new NotImplementedException();
+                    return "E-Mail не подтвержден";
                 default: //Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
                     Logger.Warn("Unhandled login fail reason: " + result);
                     return "Неизвестная ошибка";

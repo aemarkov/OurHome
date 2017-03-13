@@ -306,50 +306,11 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="Content\bootstrap-cosmo.min.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flags\famfamfam-flags.css" />
     <Content Include="Content\flags\famfamfam-flags.png" />
-    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="Content\toastr.css" />
-    <Content Include="Content\toastr.min.css" />
     <Content Include="css\home.css">
       <DependentUpon>home.less</DependentUpon>
     </Content>
@@ -403,12 +364,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\toastr.less" />
-    <Content Include="Content\toastr.scss" />
     <Content Include="css\home.less" />
     <Content Include="css\style.less" />
     <Content Include="css\settings.less" />
@@ -416,8 +371,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="css\menu.less" />
     <Content Include="css\profile.less" />
+    <None Include="Properties\PublishProfiles\OurHomeMonitoring - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <None Include="Scripts\jquery-2.2.0-vsdoc.js" />
+    <Content Include="Scripts\Chart.bundle.min.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
@@ -533,6 +490,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Models\Layout\UserMenuOrLoginLinkViewModel.cs" />
     <Compile Include="Models\Account\LoginFormViewModel.cs" />
@@ -617,6 +575,7 @@
     <Folder Include="Areas\Admin\Views\AdminNews\" />
     <Folder Include="Areas\Admin\Views\AdminSensors\" />
     <Folder Include="Areas\Admin\Views\AdminUsers\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

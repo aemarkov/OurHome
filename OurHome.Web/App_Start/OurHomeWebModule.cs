@@ -38,6 +38,7 @@ namespace OurHome.Web
             //});
 
 
+            Configuration.MultiTenancy.IsEnabled = false;
             Configuration.Modules.AbpMvc().IsValidationEnabledForControllers = false;
         }
 
