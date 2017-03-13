@@ -6,7 +6,7 @@
 
 @import (reference) 'settings.less';
 
-///////// БАННЕР /////////
+///////// БАННЕР ////////
 
 //Банер на главнойс странице
 .banner {
@@ -21,7 +21,10 @@
     top: 50%;
     margin-top: -100px;
     height: 200px;
-    right: 300px;
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+    text-align: center;
 
     h1 {
         font-size: 100px;
@@ -33,13 +36,110 @@
     }
 }
 
-.window-position {
-    position: absolute;
-    top: 50%;
-    width: 695px;
-    height: 716px;
-    margin-top: -280px;
-    left: 60px;
+@media(max-width: 1270px)
+{
+    .banner-text-container {
+        @width: 695px;
+        position: absolute;
+        top: 50%;
+        width: @width;
+        height: 716px;
+        margin-top: -280px;
+        left: 50%;
+        margin-left: -(@width/2);
+    }
+
+    //@media (max-width)
+
+    .window-position {
+        @width: 695px;
+
+        position: absolute;
+        width: 695px;
+        height: 716px;
+        top: 50%;
+        margin-top: -280px;
+        left: 50%;
+        margin-left: -(@width/2);
+    }
+}
+
+@media(min-width: 1271px)
+{
+    .banner-text-container {
+        position: absolute;
+        top: @roof-height + @menu-height;
+        bottom: 0;
+        left: 750px !important;
+        right: 0;
+        left: 60px;
+    }
+
+    //@media (max-width)
+
+    .window-position {
+        position: absolute;
+        width: 695px;
+        height: 716px;
+        top: 50%;
+        margin-top: -280px;
+        left: 30px;
+    }
+}
+
+@media(max-width: 768px)
+{
+    .window-position
+    {
+        display: none;
+    }
+
+    .banner {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .banner-text-container {
+        position: relative;
+        margin: 0;
+        top: 0;
+        left: 0;
+        height: 200px;
+        width: 100%;
+    }
+
+    .banner-text{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media(max-width: 500px)
+{
+    .banner-text {
+
+        h1 {
+            font-size: 50px;
+            //letter-spacing: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .banner-text-container {
+        height: 130px;
+    }
+
+    .banner{
+        height: 130px;
+    }
 }
 
 //Окно
@@ -82,11 +182,27 @@
 }
 
 ///// РАЗДЕЛ ОСОБЕННОСТЕЙ ///////
-.feature-conent {
+/*.feature-conent {
     padding: 20px;
 }
 
 .feature-image {
     width: 25%;
     position: relative;
+}*/
+
+.feature-image {
+    max-width: 100%;
+}
+
+@media(min-width: 768px)
+{
+    .feature-card{
+        padding: 0;
+    }
+}
+
+.feature-col{
+    margin: 0;
+    padding: 0;
 }
