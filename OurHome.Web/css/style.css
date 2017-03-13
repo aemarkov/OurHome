@@ -234,24 +234,27 @@ footer {
 .top-menu .user-menu {
   float: right;
 }
-.top-menu .active-highlight {
-  display: none;
-  position: absolute;
-  height: 6px;
-  background-color: #fb6c27;
-  top: 60px;
-  left: -1px;
-  right: -1px;
-  border-radius: 0 0 4px 4px;
+/*.top-menu .active-highlight {
+    display: none;
+    position: absolute;
+    height: 6px;
+    background-color: @roof-color;
+    top: @menu-height;
+    left: -1px;
+    right: -1px;
+    border-radius: 0 0 4px 4px;
 }
+
+
 .top-menu .menu-active {
-  border-bottom: 2px solid #fb6c27 !important;
-  border-left: 1px solid #fb6c27 !important;
-  border-right: 1px solid #fb6c27 !important;
-}
-.top-menu .menu-active .active-highlight {
-  display: inline-block;
-}
+    border-bottom: 2px solid @roof-color !important;
+    border-left: 1px solid @roof-color !important;
+    border-right: 1px solid @roof-color !important;
+
+    .active-highlight {
+        display: inline-block;
+    }
+}*/
 .menu-item-base {
   text-decoration: none;
   color: #333;

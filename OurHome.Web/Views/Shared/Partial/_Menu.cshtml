@@ -6,19 +6,19 @@
     <div class="top-menu">
         <nav class="container  top-menu-visible">
             <span class="separator-left"></span>
-            <a href="@Url.Action("Index", "Home")" class="menu-item">
+            <a href="@Url.Action("Index", "Home", new {Area=""})" class="menu-item">
                 <span class="active-highlight"></span>
                 Главная
             </a>
-            <a href="@Url.Action("Index","Info")" class="menu-item">
+            <a href="@Url.Action("Index","Info", new {Area=""})" class="menu-item">
                 <span class="active-highlight"></span>
                 Полезная информация
             </a>
-            <a href="@Url.Action("Contacts", "Home")" class="menu-item  menu-active">
+            <a href="@Url.Action("Contacts", "Home", new {Area=""})" class="menu-item  menu-active">
                 <span class="active-highlight"></span>
                 Контакты
             </a>
-            <a href="@Url.Action("Documents", "Home")" class="menu-item">
+            <a href="@Url.Action("Documents", "Home", new {Area=""})" class="menu-item">
                 <span class="active-highlight"></span>
                 Документы
             </a>
@@ -38,11 +38,11 @@
                             
                             @if (User.IsInRole(StaticRoleNames.Tenants.User))
                             {
-                                <li><a href="@Url.Action("Index", "Profile")">Профиль</a></li>
+                                <li><a href="@Url.Action("Index", "Profile", new {Area=""})">Профиль</a></li>
                             }
                             else if (User.IsInRole(StaticRoleNames.Tenants.Admin))
                             {
-                                <li><a href="@Url.Action("Index", "Admin", new{Area="Admin"})">Администрирование</a></li>
+                                <li><a href="@Url.Action("Index", "AdminUsers", new{Area="Admin"})">Администрирование</a></li>
                             }
                             <li><a href="@Url.Action("Logout", "Account")">Выход</a></li>
                         </ul>
@@ -73,21 +73,27 @@
     @if (User.IsInRole(StaticRoleNames.Tenants.User))
     {
         <hr />
-        <a class="menu-item" href="@Url.Action("Index", "Profile")">Сводка</a>
-        <a class="menu-item" href="@Url.Action("Edit", "Profile")">Редактирование профиля</a>
+        <a class="menu-item" href="@Url.Action("Index", "Profile", new {Area=""})">Сводка</a>
+        <a class="menu-item" href="@Url.Action("Edit", "Profile", new {Area=""})">Редактирование профиля</a>
     }
     else if (User.IsInRole(StaticRoleNames.Tenants.Admin))
     {
         <hr />
-        <a class="menu-item"  href="@Url.Action("Index", "Admin", new{Area="Admin"})">Администрирование</a>
+        <a class="menu-item" href="@Url.Action("Index","AdminUsers", new{Area="Admin"})">Пользователи</a>
+        <a class="menu-item" href="@Url.Action("Index","AdminSensors", new{Area="Admin"})">Счетчики</a>
+        <hr />
+        <a class="menu-item" href="@Url.Action("Index","AdminNews", new{Area="Admin"})">Полезная информация</a>
+        <a class="menu-item" href="@Url.Action("Index","AdminFeatures", new{Area="Admin"})">Особенности</a>
+        <a class="menu-item" href="@Url.Action("Index","AdminContacts", new{Area="Admin"})">Контакты</a>
+        <a class="menu-item" href="@Url.Action("Index","AdminDocuments", new{Area="Admin"})">Документы</a>
     }
 
     <hr/>
 
-    <a href="@Url.Action("Index", "Home")" class="menu-item">Главная</a>
-    <a href="@Url.Action("Index","Info")" class="menu-item">Полезная информация</a>
-    <a href="@Url.Action("Contacts", "Home")" class="menu-item  menu-active">Контакты</a>
-    <a href="@Url.Action("Documents", "Home")" class="menu-item">Документы</a>
+    <a href="@Url.Action("Index", "Home", new {Area=""})" class="menu-item">Главная</a>
+    <a href="@Url.Action("Index","Info", new {Area=""})" class="menu-item">Полезная информация</a>
+    <a href="@Url.Action("Contacts", "Home", new {Area=""})" class="menu-item  menu-active">Контакты</a>
+    <a href="@Url.Action("Documents", "Home", new {Area=""})" class="menu-item">Документы</a>
     <hr/>
     
     @if (User.Identity.IsAuthenticated)

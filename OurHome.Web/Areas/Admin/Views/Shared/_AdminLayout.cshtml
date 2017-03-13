@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @RenderSection("styles", required: false)
+}
+
+
+
+
+<div class="container">
+    <h1>@ViewBag.AdminTitle</h1>
+
+    <div class="row">
+        <div class="col-md-3 profile-menu">
+            <div class="card">
+                <h3>Администрирование</h3>
+                <hr />
+                <a class="profile-menu-item" href="@Url.Action("Index","AdminUsers")">Пользователи</a>
+                <a class="profile-menu-item" href="@Url.Action("Index","AdminSensors")">Счетчики</a>
+                <hr/>
+                <a class="profile-menu-item" href="@Url.Action("Index","AdminNews")">Полезная информация</a>
+                <a class="profile-menu-item" href="@Url.Action("Index","AdminFeatures")">Особенности</a>
+                <a class="profile-menu-item" href="@Url.Action("Index","AdminContacts")">Контакты</a>
+                <a class="profile-menu-item" href="@Url.Action("Index","AdminDocuments")">Документы</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts{
+    @RenderSection("scripts", required: false)
+}

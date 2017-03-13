@@ -396,6 +396,9 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\AdminDummy.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -517,6 +520,13 @@
     <Compile Include="App_Start\OurHomeWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminContactsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminDocumentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminFeaturesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminNewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminSensorsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
@@ -600,6 +610,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\AdminContacts\" />
+    <Folder Include="Areas\Admin\Views\AdminDocuments\" />
+    <Folder Include="Areas\Admin\Views\AdminFeatures\" />
+    <Folder Include="Areas\Admin\Views\AdminNews\" />
+    <Folder Include="Areas\Admin\Views\AdminSensors\" />
+    <Folder Include="Areas\Admin\Views\AdminUsers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
