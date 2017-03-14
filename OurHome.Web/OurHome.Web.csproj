@@ -334,9 +334,15 @@
     <Content Include="images\abp-logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\clock.png" />
+    <Content Include="images\get_values.jpg" />
     <Content Include="images\grass.png" />
+    <Content Include="images\payment.png" />
+    <Content Include="images\pc.png" />
+    <Content Include="images\scheme.png" />
     <Content Include="images\Shingles_bottom.png" />
     <Content Include="images\window-empty.png" />
+    <Content Include="images\wireless.png" />
     <Content Include="js\main.js" />
     <Content Include="css\main.less" />
     <Content Include="css\main.css.map">

@@ -30,19 +30,86 @@
         <div class="card">
             <h1>Описание</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis ornare diam, ut mollis velit consectetur sed. Pellentesque mauris lorem, fermentum sagittis tempor in, molestie nec tortor. Nam dignissim id tortor quis ultricies. Etiam fringilla ante urna, eget consectetur diam ultrices aliquet. Etiam tellus ligula, semper eget commodo eu, iaculis a libero. Ut sagittis neque auctor nisl condimentum, et scelerisque augue luctus. Donec id justo pharetra, condimentum lacus a, facilisis quam. Pellentesque accumsan risus in elit lacinia hendrerit. Nulla dapibus laoreet neque, eget lacinia lectus finibus ac. Ut vestibulum libero libero, ornare tincidunt urna fermentum ac. Ut molestie tortor in nisi feugiat eleifend. Aliquam purus massa, pellentesque nec felis quis, sodales tempor sapien. Proin sollicitudin commodo augue, eget cursus nunc volutpat sed. Praesent venenatis tristique enim eget commodo. Donec pretium purus vel lectus aliquet gravida.
-                Cras pellentesque enim nec finibus ultrices. Morbi ut blandit sem. Sed bibendum dignissim ante vel suscipit. Nunc ac tortor id arcu ullamcorper porttitor. Nulla maximus tellus et arcu sollicitudin tincidunt. Etiam ultrices, felis vel sodales vehicula, leo diam tincidunt justo, sit amet dignissim augue tortor at erat. Aenean commodo fermentum convallis. Curabitur consequat nulla at ultricies malesuada. Vestibulum tempus magna ut rutrum cursus. Nam et sem tellus. Integer vulputate dolor justo, sed sodales nisi vestibulum quis. Aliquam pretium scelerisque scelerisque. Mauris tincidunt quam id eros iaculis, at tristique erat eleifend.
+                Диспетчеризация приборов учета водо-газо- энергоресурсов — готовое решение «Наш дом» для многоквартирных домов, 
+                дачных поселков, предприятий и сбытовых компаний. Автоматизированная система контроля и учета ресурсов на базе 
+                технологии «Наш дом» разворачивается в считанные часы. Теперь коммерческий учет ресурсов можно
+                организовать без существенных затрат на оборудование и монтаж.
+            </p>
+            <p>
+                Представьте, что есть возможность использовать систему сбора показаний — без проводов, 
+                без промежуточного оборудования, без существенных затрат на монтаж. 
+                Это решает все проблемы по созданию АСКУЭ в пределах квартала и даже города.
+            </p>
+            
+            <p>
+                Система "Наш дом" состоит из автономных регистраторов, которые подключаются к электро-, водо- или газосчетчикам и 
+                передают информацию о потреблении на базовую станцию, расположенную, к примеру, на лестничной клетке, которая
+                передает данные на наш сервер. В личном кабинете можно в удобной форме просмотреть данные о расходах по всем
+                подключенным приборам учета.
+                <a href="/images/scheme.png"><img class="feature-image" src="~/images/scheme.png"/></a>
             </p>
         </div>
         <h1>Возможности</h1>
 
+        @*@Html.Partial("Partial/_FeatureCardPartial")
         @Html.Partial("Partial/_FeatureCardPartial")
-        @Html.Partial("Partial/_FeatureCardPartial")
-        @Html.Partial("Partial/_FeatureCardPartial")
+        @Html.Partial("Partial/_FeatureCardPartial")*@
+        
+        <div class="row card feature-card">
+            <div class="col-sm-4 feature-col">
+                <img class="feature-image" src="/images/wireless.png" />
+            </div>
+            <div class="col-sm-8">
+                <h3>Автономные регистраторы</h3>
+                Регистраторы, которые устанавливаются на приборы учета обладают автономным питанием от батареи и 
+                имеют беспроводную связь с базовой станцией, поэтому их установка проста и не требует подведения
+                питания или коммуникаций.
+            </div>
+        </div>
+        
+        <div class="row card feature-card">
+            <div class="col-sm-4 feature-col">
+                <img class="feature-image" src="/images/clock.png" />
+            </div>
+            <div class="col-sm-8">
+                <h3>Большое время автономной работы</h3>
+                Благодаря энергосберегающим технологиям, регистраторы обладают большим
+                временем автономной работы и не требуют частой смены батарей.
+            </div>
+        </div>
+        
+        <div class="row card feature-card">
+            <div class="col-sm-4 feature-col">
+                <img class="feature-image" src="/images/pc.png" />
+            </div>
+            <div class="col-sm-8">
+                <h3>Удобный и функциональный личный кабинет</h3>
+                <p>
+                    Все пользователи системы имеют личный кабинет, который предоставляет доступ к большому количеству функций.
+                    В личном кабинете пользователи могут просматривать сводку за текущий месяц - расходы по всем приборам учета и
+                    соответствующую им стоимость, задолженности по платежам.
+                </p>
+                <p>
+                    Также в личном кабинете доступна подробная статистика за прошлые месяцы, что позволяет пользователю мониторить и
+                    и контроллировать собственные расходы.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row card feature-card">
+            <div class="col-sm-4 feature-col">
+                <img class="feature-image" src="/images/payment.png" />
+            </div>
+            <div class="col-sm-8">
+                <h3>Осуществляйте платежи прямо из личного кабинета</h3>
+                Никогда оплата коммунальных услуг не была такой удобной - система "Наш дом" позволяет не только измерять
+                расходы, но и оплачивать счета на электричество, газ, воду прямо из личного кабинета
+            </div>
+        </div>
 
         <h1>Последние новости</h1>
+       
 
-        @Html.Partial("Partial/_NewsCardPartial")
         @Html.Partial("Partial/_NewsCardPartial")
 
     </div>
