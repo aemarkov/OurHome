@@ -94,6 +94,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\City.cs" />
+    <Compile Include="Domain\Customer.cs" />
+    <Compile Include="Domain\Directories\BaseDirectory.cs" />
+    <Compile Include="Domain\Directories\ResourceType.cs" />
+    <Compile Include="Domain\News.cs" />
+    <Compile Include="Domain\Registrator.cs" />
+    <Compile Include="Domain\ResourceConsumption.cs" />
     <Compile Include="OurHomeConsts.cs" />
     <Compile Include="OurHomeCoreModule.cs" />
     <Compile Include="Authorization\OurHomeAuthorizationProvider.cs" />
@@ -144,6 +151,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\Source\OurHome-nl-NL.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

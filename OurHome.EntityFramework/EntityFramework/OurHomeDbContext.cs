@@ -1,6 +1,9 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using OurHome.Authorization.Roles;
+using OurHome.Domain;
+using OurHome.Domain.Directories;
 using OurHome.MultiTenancy;
 using OurHome.Users;
 
@@ -37,5 +40,13 @@ namespace OurHome.EntityFramework
         {
 
         }
+
+        public IDbSet<Customer> Customers { get; set; }
+        public IDbSet<Registrator> Registrators { get; set; }
+        public IDbSet<ResourceType> ResourceTypes { get; set; }
+        public IDbSet<City> Cities { get; set; }
+        public IDbSet<News> News { get; set; }
+
+        public IDbSet<ResourceConsumption> ConsumptionHistory { get; set; }
     }
 }

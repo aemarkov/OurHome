@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Users;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
@@ -7,6 +8,19 @@ namespace OurHome.Users
 {
     public class User : AbpUser<User>
     {
+        #region VALIDATION
+        public const int MaxMiddlenameLength = 32;
+        #endregion
+
+        #region PROPERTIES
+
+        [MaxLength(MaxMiddlenameLength)]
+        public string Middlename { get; set; }
+
+        public override string FullName => $"{Surname} {Name} {Middlename}";  
+
+        #endregion
+
         public const string DefaultPassword = "123qwe";
 
         public static string CreateRandomPassword()

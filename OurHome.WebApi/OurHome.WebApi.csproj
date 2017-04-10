@@ -148,6 +148,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Controllers\RegistratorController.cs" />
+    <Compile Include="Api\Models\Registrator\AddConsumptionModel.cs" />
     <Compile Include="Api\OurHomeWebApiModule.cs" />
     <Compile Include="Api\Controllers\AccountController.cs" />
     <Compile Include="Api\Models\LoginModel.cs" />
