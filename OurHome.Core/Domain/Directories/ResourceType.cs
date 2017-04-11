@@ -9,7 +9,7 @@ namespace OurHome.Domain.Directories
     {
         [Required]
         [MaxLength(10)]
-        public override string Id { get; set; }
+        public override string Value { get; set; }
 
         [Required]
         [MaxLength(32)]
@@ -21,5 +21,10 @@ namespace OurHome.Domain.Directories
         [Required]
         [MaxLength(10)]
         public string Unit { get; set; }
+
+        public static string ELECTRICITY = "ELECTRICIT";
+        public static string GAS = "GAS";
+        public static string HOT_WATER = "HOT_WATER";
+        public static string COLD_WATER = "COLD_WATER";
     }
 }

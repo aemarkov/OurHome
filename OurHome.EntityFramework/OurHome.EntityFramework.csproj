@@ -136,6 +136,14 @@
     <Compile Include="Migrations\201704102346417_Add_ResourceConsumption_To_DbContext.Designer.cs">
       <DependentUpon>201704102346417_Add_ResourceConsumption_To_DbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704110714311_WTF_Remove_ResourceType.cs" />
+    <Compile Include="Migrations\201704110714311_WTF_Remove_ResourceType.Designer.cs">
+      <DependentUpon>201704110714311_WTF_Remove_ResourceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704110715136_WTF_Add_ResourceType_And_Make_Id_Int.cs" />
+    <Compile Include="Migrations\201704110715136_WTF_Add_ResourceType_And_Make_Id_Int.Designer.cs">
+      <DependentUpon>201704110715136_WTF_Add_ResourceType_And_Make_Id_Int.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OurHomeDataModule.cs" />
@@ -170,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704102346417_Add_ResourceConsumption_To_DbContext.resx">
       <DependentUpon>201704102346417_Add_ResourceConsumption_To_DbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704110714311_WTF_Remove_ResourceType.resx">
+      <DependentUpon>201704110714311_WTF_Remove_ResourceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704110715136_WTF_Add_ResourceType_And_Make_Id_Int.resx">
+      <DependentUpon>201704110715136_WTF_Add_ResourceType_And_Make_Id_Int.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

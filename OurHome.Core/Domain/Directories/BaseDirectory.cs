@@ -5,12 +5,12 @@ namespace OurHome.Domain.Directories
     /// <summary>
     /// Базовый класс справочника
     /// </summary>
-    public class BaseDirectory:Entity<string>
+    public class BaseDirectory:Entity
     {
         /// <summary>
         /// Строковой идентификатор
         /// </summary>
-        public override string Id { get; set; }
+        public virtual string Value { get; set; }
 
         /// <summary>
         /// Человекочитаемое название

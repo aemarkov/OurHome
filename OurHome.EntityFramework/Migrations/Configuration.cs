@@ -1,8 +1,13 @@
+﻿using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Linq.Dynamic;
 using Abp.MultiTenancy;
 using Abp.Zero.EntityFramework;
 using OurHome.Migrations.SeedData;
 using EntityFramework.DynamicFilters;
+using OurHome.Domain.Directories;
+using OurHome.EntityFramework;
 
 namespace OurHome.Migrations
 {
@@ -34,7 +39,28 @@ namespace OurHome.Migrations
                 //You can add seed for tenant databases and use Tenant property...
             }
 
+            CreateResourceTypes(context);
+
             context.SaveChanges();
         }
+
+        //Создает типы ресурсов
+        private void CreateResourceTypes(OurHomeDbContext ctx)
+        {
+            CreateResourceTypeIfNotExists(ctx, ResourceType.ELECTRICITY, "Электричество", "кВт/ч");
+            CreateResourceTypeIfNotExists(ctx, ResourceType.GAS, "Газ", "м³");
+            CreateResourceTypeIfNotExists(ctx, ResourceType.COLD_WATER, "Холодная вода", "м³");
+            CreateResourceTypeIfNotExists(ctx, ResourceType.HOT_WATER, "Горячая вода", "м³");
+        }
+
+        //Создает запись справочника, если не существует
+        private void CreateResourceTypeIfNotExists(OurHomeDbContext ctx, string value, string text, string unit)
+        {
+            if (!ctx.ResourceTypes.Any(x=>x.Value== value))
+            {
+                ctx.ResourceTypes.Add(new ResourceType() {Value = value, DisplayText = text, Unit = unit});
+            }
+        }
     }
+
 }
